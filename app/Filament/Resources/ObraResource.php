@@ -29,13 +29,14 @@ class ObraResource extends Resource
                     ->description('Datos de la obra ')
                     ->columns(2)
                     ->schema([
-                        Forms\Components\TextInput::make('referencia'),
-
-                        Forms\Components\TextInput::make('localidad'),
                         Forms\Components\TextInput::make('nombre')
                             ->required()
                             ->maxLength(255)
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('referencia'),
+                        Forms\Components\TextInput::make('localidad'),
+
+
 
                     ])
 
@@ -57,9 +58,6 @@ class ObraResource extends Resource
                 Tables\Columns\TextColumn::make('localidad')
                     ->searchable()
                     ->sortable(),
-
-
-
 
             ])
             ->filters([

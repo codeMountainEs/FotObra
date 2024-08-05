@@ -20,12 +20,17 @@ class Foto extends Model implements HasMedia
         'referencia',
         'nombre',
         'obra_id',
+        'user_id',
         'is_active',
     ];
 
     public function obra(): BelongsTo
     {
         return $this->belongsTo(Obra::class);
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
     public function registerMediaConversions(?Media $media = null): void
     {

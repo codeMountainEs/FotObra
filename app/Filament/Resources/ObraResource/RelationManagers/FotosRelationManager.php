@@ -19,6 +19,10 @@ class FotosRelationManager extends RelationManager
         return $form
             ->schema([
 
+                Forms\Components\Hidden::make('user_id')
+                    ->default(auth()->id())
+                    ->required(),
+
                 Forms\Components\SpatieMediaLibraryFileUpload::make('fotos')
                     ->collection('fotos')
                     ->image()
@@ -50,6 +54,8 @@ class FotosRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('nombre')
             ->columns([
+                Tables\Columns\TextColumn::make('user.name'),
+
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
                     ->collection('fotos')
                     ->circular()

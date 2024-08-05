@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->boolean('is_active')->default(true);
             $table->foreignId('obra_id')->constrained('obras')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
         });
