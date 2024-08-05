@@ -22,3 +22,31 @@ factory
 php artisan make:filament-relation-manager ObraResource fotos nombre
 
 
+
+## multitenant .. laraveldaily.com/post/multi-tenancy-filament-simple 
+
+trait multientantable , model/trait/multitenantable.php
+con esto cada vez que se cree una foto se la asigna auto al usuario... en cuestion ..
+
+ahora con global scope 
+
+
+## add roles a users 
+
+https://laraveldaily.com/lesson/laravel-breeze-user-role-areas/role-model-migrations-seeder
+
+
+
+php artisan:migration add_role_to_users_table
+
+php artisan make:migration "add role id to users table"
+
+
+
+https://laraveldaily.com/post/filament-registration-form-extra-fields-choose-user-role
+
+
+## obras y usuarios 
+
+
+php artisan make:migration ObraUser

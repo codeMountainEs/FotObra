@@ -15,6 +15,7 @@ class Obra extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
+
     protected $fillable = [
         'referencia',
         'nombre',
