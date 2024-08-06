@@ -53,7 +53,6 @@ class DatabaseSeeder extends Seeder
         Obra::factory()->create([
             'nombre' => 'RESTAURANTE ',
             'referencia' => 'RES-SA-001',
-            'Localidad' => 'Santoña'
 
         ]);
     }
