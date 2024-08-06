@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Filament\Actions\CreateAction;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Filament\Tables\Actions\CreateAction::configureUsing(function ($action){
+           return $action->slideOver();
+        });
+
     }
 }

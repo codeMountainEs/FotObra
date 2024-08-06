@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Obra;
 use App\Models\Role;
+use App\Models\Tipobra;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,9 +22,16 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => 'Oficina']);
         Role::create(['name' => 'Jefe de Obra']);
 
+        Tipobra::create(['nombre' => 'General']);
+        Tipobra::create(['nombre' => 'Planteamiento']);
+        Tipobra::create(['nombre' => 'Ejecución']);
+        Tipobra::create(['nombre' => 'Finalización']);
+
+
+
         User::factory()->create([
             'name' => 'Administrador',
-            'email' => 'administrador@fotobra.com',
+            'email' => 'admin@fotobra.com',
             'role_id' => '1'
         ]);
         User::factory()->create([

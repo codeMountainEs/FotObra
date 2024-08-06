@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -34,5 +36,23 @@ class Obra extends Model implements HasMedia
             ->addMediaConversion('preview')
             ->fit(Fit::Contain, 300, 300)
             ->nonQueued();
+    }
+
+    public static function getForm(): array {
+        return [
+            Section::make('Obra')
+                ->collapsible()
+                ->description('Datos de la obra ')
+                ->columns(2)
+                ->schema([
+                    TextInput::make('nombre')
+                        ->required()
+                        ->maxLength(255)
+                        ->columnSpanFull(),
+                    TextInput::make('referencia'),
+                    TextInput::make('localidad'),
+
+                ])->columns(2),
+            ];
     }
 }

@@ -49,4 +49,18 @@ https://laraveldaily.com/post/filament-registration-form-extra-fields-choose-use
 ## obras y usuarios 
 
 
-php artisan make:migration ObraUser
+php artisan make:migration create_ObraUser
+
+
+## InfoList de Obra 
+composer require filament/infolists:"^3.2" -W
+
+
+
+php artisan make:filament-page 
+name : ViewObra
+Resource ObraResource 
+
+
+
+app/Filament/Resources/ObraResource/Pages/ViewObra.php] created successfully.  

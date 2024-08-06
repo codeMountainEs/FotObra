@@ -35,6 +35,12 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
+        'obradisk' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/fotosobras'),
+            'url' => env('APP_URL').'/storage/fotosobras',
+
+        ],
 
         'public' => [
             'driver' => 'local',
