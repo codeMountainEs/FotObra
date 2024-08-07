@@ -101,7 +101,7 @@ class Foto extends Model implements HasMedia
             ])->columns(1),
 
 
-           SpatieMediaLibraryFileUpload::make('fotos')
+         /*  SpatieMediaLibraryFileUpload::make('fotos')
 
                ->collection('obraCollection')
                 ->image()
@@ -117,7 +117,7 @@ class Foto extends Model implements HasMedia
                 ->previewable(true)
                 ->columnSpanFull()
                 ->reorderable(),
-
+            */
 
         ];
     }

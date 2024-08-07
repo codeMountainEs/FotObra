@@ -36,20 +36,20 @@ class FotosRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('tipobra.nombre')->label('Tipo de Obra'),
                 Tables\Columns\ImageColumn::make('images')
-
+                    ->circular()
                     ->stacked()
                     ->limit(3)
                     ->label('Imagen'),
 
-                Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
+             /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
                     ->collection('obraCollection')
                     ->circular()
                     ->stacked()
                     ->limit(3)
-                    ->limitedRemainingText()
+                    ->limitedRemainingText() ,
 
+                */
 
-                ,
 
                     Tables\Columns\TextColumn::make('updated_at')
                         ->dateTime()
