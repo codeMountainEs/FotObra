@@ -94,6 +94,7 @@ class Foto extends Model implements HasMedia
                     ->imageCropAspectRatio('16:9')
                     ->imageResizeTargetWidth('1280')
                     ->imageResizeTargetHeight('720')
+                    ->panelLayout('grid')
                     ->columnSpanFull()
                 ,
 
@@ -103,7 +104,6 @@ class Foto extends Model implements HasMedia
            SpatieMediaLibraryFileUpload::make('fotos')
 
                ->collection('obraCollection')
-                ->visible('true')
                 ->image()
                 ->multiple()
                 ->imageEditor()
