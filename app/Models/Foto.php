@@ -30,9 +30,9 @@ class Foto extends Model implements HasMedia
         'user_id',
         'is_active',
         'tipobra_id',
-        'imagenes'
+        'images'
     ];
-    protected $casts = ['imagenes' => 'array'];
+    protected $casts = ['images' => 'array'];
 
     public function obra(): BelongsTo
     {
@@ -82,7 +82,7 @@ class Foto extends Model implements HasMedia
                 ->required()
             ,
 
-            Section::make('Immágenes del Trabajo')->schema([
+            Section::make('Imágenes del Trabajo')->schema([
 
                 FileUpload::make('images')
                     ->directory('trabajos')

@@ -35,6 +35,7 @@ class FotosRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('tipobra.nombre')->label('Tipo de Obra'),
+                Tables\Columns\ImageColumn::make('imagen')->label('Imagen'),
 
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
                     ->collection('obraCollection')

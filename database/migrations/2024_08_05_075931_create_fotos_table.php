@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('tipobra_id')->constrained('tipobras')->cascadeOnDelete();
 
-            $table->json('imagenes')->nullable();
+            $table->json('images')->nullable();
 
 
             $table->timestamps();
