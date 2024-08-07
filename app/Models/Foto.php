@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\Traits\Multitenantable;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,7 +30,9 @@ class Foto extends Model implements HasMedia
         'user_id',
         'is_active',
         'tipobra_id',
+        'imagenes'
     ];
+    protected $casts = ['imagenes' => 'array'];
 
     public function obra(): BelongsTo
     {
@@ -78,11 +82,28 @@ class Foto extends Model implements HasMedia
                 ->required()
             ,
 
+            Section::make('Immágenes del Trabajo')->schema([
+
+                FileUpload::make('images')
+                    ->directory('trabajos')
+                    ->multiple()
+                    ->maxFiles(5)
+                    ->reorderable()
+                    ->imageEditor()
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('16:9')
+                    ->imageResizeTargetWidth('1280')
+                    ->imageResizeTargetHeight('720')
+                    ->columnSpanFull()
+                ,
+
+            ])->columns(1),
+
 
            SpatieMediaLibraryFileUpload::make('fotos')
 
                ->collection('obraCollection')
-
+                ->visible('true')
                 ->image()
                 ->multiple()
                 ->imageEditor()
