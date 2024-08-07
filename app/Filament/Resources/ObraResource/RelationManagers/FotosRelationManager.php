@@ -62,7 +62,9 @@ class FotosRelationManager extends RelationManager
 
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('tipobra')
+                ->relationship('tipobra','nombre')
+
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),

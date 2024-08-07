@@ -23,8 +23,14 @@ class ObraResource extends Resource
 {
     protected static ?string $model = Obra::class;
 
+    protected static ?string $recordTitleAttribute ='nombre';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['nombre','referencia','localidad'];
+    }
 
     public static function getNavigationBadge(): ?string
     {
