@@ -4,6 +4,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ObraResource\Pages;
 use App\Filament\Resources\ObraResource\RelationManagers;
+use App\Filament\Resources\ObraResource\Widgets\FotoObrasStatsWidget;
+use App\Filament\Resources\ObraResource\Widgets\ObraFotosChart;
+use App\Models\Foto;
 use App\Models\Obra;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -22,6 +25,14 @@ class ObraResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    public static function getNavigationBadge(): ?string
+    {
+        return Foto::countTotalImages();
+        //return Obra::where('is_active', true)->count();
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form
@@ -39,6 +50,13 @@ class ObraResource extends Resource
                 Tables\Columns\TextColumn::make('localidad')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\IconColumn::make('is_active')
+                    ->boolean(),
+
+                Tables\Columns\TextColumn::make('fotos_count')
+                    ->label('Número de Imágenes')
+                    ->counts('fotos')
+                   ,
 
             ])
             ->filters([
@@ -71,6 +89,14 @@ class ObraResource extends Resource
             'create' => Pages\CreateObra::route('/create'),
             'edit' => Pages\EditObra::route('/{record}/edit'),
             'view' => Pages\ViewObra::route('/{record}'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            FotoObrasStatsWidget::class,
+
         ];
     }
 

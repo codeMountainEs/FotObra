@@ -34,6 +34,28 @@ class Foto extends Model implements HasMedia
     ];
     protected $casts = ['images' => 'array'];
 
+
+    // Método para contar imágenes por post
+    public function countImages()
+    {
+        return is_array($this->images) ? count($this->images) : 0;
+    }
+
+    // Método estático para contar el total de imágenes en todos los posts
+    public static function countTotalImages()
+    {
+        $totalImages = 0;
+        $obras = self::all();
+
+        foreach ($obras as $obra) {
+            $totalImages += $obra->countImages();
+        }
+
+        return $totalImages;
+    }
+
+
+
     public function obra(): BelongsTo
     {
         return $this->belongsTo(Obra::class);

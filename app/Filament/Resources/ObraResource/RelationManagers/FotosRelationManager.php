@@ -34,12 +34,16 @@ class FotosRelationManager extends RelationManager
             ->recordTitleAttribute('nombre')
             ->columns([
                 Tables\Columns\TextColumn::make('user.name'),
-                Tables\Columns\TextColumn::make('tipobra.nombre')->label('Tipo de Obra'),
+                Tables\Columns\TextColumn::make('tipobra.nombre')
+                    ->badge()
+                    ->color('success')
+                    ->label('Tipo de Obra'),
                 Tables\Columns\ImageColumn::make('images')
                     ->circular()
                     ->stacked()
                     ->limit(3)
                     ->label('Imagen'),
+
 
              /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
                     ->collection('obraCollection')

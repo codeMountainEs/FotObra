@@ -64,3 +64,12 @@ Resource ObraResource
 
 
 app/Filament/Resources/ObraResource/Pages/ViewObra.php] created successfully.  
+
+## subir fotos .. con Spatie o fileupload .. 
+al final con fileupload , ya que spatie, no controlamos carpetas y en plesk no suben carpetas ni ficheros con permisos suficientes y da error 403
+
+
+## WIDGET 
+php artisan make:filament-widget StatsOverview --stats-overview
+FotoObrasStatsWidget 
+ObraResource

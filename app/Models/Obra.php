@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\IconColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -25,6 +27,20 @@ class Obra extends Model implements HasMedia
         'localidad',
     ];
 
+
+
+
+
+    public function is_active()
+    {
+        return $this->is_active = true;
+    }
+
+    public function getNumeroDeFotos()
+    {
+        return count(json_decode($this->images));
+    }
+
     public function fotos () : HasMany
     {
        return $this->hasMany(Foto::class);
@@ -42,8 +58,7 @@ class Obra extends Model implements HasMedia
         return [
             Section::make('Obra')
                 ->collapsible()
-                ->description('Datos de la obra ')
-                ->columns(2)
+                ->description('Datos de la Obra ')
                 ->schema([
                     TextInput::make('nombre')
                         ->required()
@@ -51,8 +66,11 @@ class Obra extends Model implements HasMedia
                         ->columnSpanFull(),
                     TextInput::make('referencia'),
                     TextInput::make('localidad'),
+                    Toggle::make('is_active'),
 
-                ])->columns(2),
+
+
+                ])->columns(3),
             ];
     }
 }
