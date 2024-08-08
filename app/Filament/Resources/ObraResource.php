@@ -8,7 +8,9 @@ use App\Filament\Resources\ObraResource\Widgets\FotoObrasStatsWidget;
 use App\Filament\Resources\ObraResource\Widgets\ObraFotosChart;
 use App\Models\Foto;
 use App\Models\Obra;
+use BladeUI\Icons\Components\Icon;
 use Filament\Forms;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
@@ -119,6 +121,7 @@ class ObraResource extends Resource
                             TextEntry::make('nombre')->columnSpanFull(),
                             TextEntry::make('referencia'),
                             TextEntry::make('localidad'),
+
 
                         ]),
 

@@ -28,8 +28,15 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->registration()
+            ->passwordReset()
+            ->emailVerification()
+            ->brandName('FotObra')
             ->colors([
                 'primary' => Color::Lime,
+                'secondary' => Color::Blue,
+                'info' => Color::Yellow,
+                'success' => Color::Green,
             ])
             ->registration(Register::class)
             ->darkMode(true)
@@ -40,8 +47,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+              //  Widgets\AccountWidget::class,
+               // Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -56,6 +63,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->topNavigation()
+            ->maxContentWidth('full')
+            ;
     }
 }

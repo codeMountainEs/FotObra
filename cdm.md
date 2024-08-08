@@ -1,3 +1,8 @@
+## Demo
+https://github.com/andrewdwallo/erpsaas
+https://github.com/MGeurts/genealogy/tree/main/app/Models
+
+
 # laravel 
 # filamentphp 
 
@@ -73,3 +78,8 @@ al final con fileupload , ya que spatie, no controlamos carpetas y en plesk no s
 php artisan make:filament-widget StatsOverview --stats-overview
 FotoObrasStatsWidget 
 ObraResource
+
+
+## INFOLIST PARA DASHBOARD
+
+php artisan make:filament-widget
