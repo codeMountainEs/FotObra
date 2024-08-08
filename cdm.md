@@ -83,3 +83,15 @@ ObraResource
 ## INFOLIST PARA DASHBOARD
 
 php artisan make:filament-widget
+
+
+
+php artisan make:filament-resource Foto --view
+php artisan make:filament-page ViewFotos   
+resource FotoResource 
+view
+
+Filament page [app/Filament/Resources/FotoResource/Pages/ViewFotos.php] created successfully.
+
+INFO  Make sure to register the page in `FotoResource::getPages()`.  
+
