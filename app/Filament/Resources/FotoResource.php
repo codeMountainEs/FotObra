@@ -84,7 +84,7 @@ class FotoResource extends Resource
     {
         return $infolist
             ->schema([
-                Section::make('Fotos de la Obra infoLIst')
+                Section::make('Fotos de la Obra')
                     ->columns(1
 
                     )
