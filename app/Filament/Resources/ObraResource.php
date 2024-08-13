@@ -29,10 +29,7 @@ class ObraResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function getGloballySearchableAttributes(): array
-    {
-        return ['nombre','referencia','localidad'];
-    }
+
 
     public static function getNavigationBadge(): ?string
     {
@@ -61,10 +58,6 @@ class ObraResource extends Resource
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean(),
 
-                Tables\Columns\TextColumn::make('fotos_count')
-                    ->label('Número de Imágenes')
-                    ->counts('fotos')
-                   ,
 
             ])
             ->filters([

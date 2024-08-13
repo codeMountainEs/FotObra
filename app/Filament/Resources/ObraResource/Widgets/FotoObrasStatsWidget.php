@@ -14,6 +14,9 @@ class FotoObrasStatsWidget extends BaseWidget
 
     use InteractsWithPageTable;
 
+    public array $tableColumnSearches = [];
+
+
     protected function getTablePage(): string
     {
        return ListObras::class;

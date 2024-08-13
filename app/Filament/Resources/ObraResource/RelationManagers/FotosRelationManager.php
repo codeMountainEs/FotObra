@@ -33,9 +33,11 @@ class FotosRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('nombre')
             ->columns([
-                Tables\Columns\TextColumn::make('user.name'),
+                Tables\Columns\TextColumn::make('user.name')
+                ->searchable(),
                 Tables\Columns\TextColumn::make('tipobra.nombre')
                     ->badge()
+                    ->searchable()
                     ->color('success')
                     ->label('Tipo de Obra'),
                 Tables\Columns\ImageColumn::make('images')

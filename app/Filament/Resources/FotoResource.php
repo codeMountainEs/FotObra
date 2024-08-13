@@ -47,9 +47,12 @@ class FotoResource extends Resource
                    ,
                     Tables\Columns\Layout\Stack::make([
                         Tables\Columns\TextColumn::make('nombre')
+                            ->searchable()
                         ->weight(FontWeight::Bold),
-                        Tables\Columns\TextColumn::make('referencia'),
+                        Tables\Columns\TextColumn::make('referencia')
+                        ->searchable(),
                         Tables\Columns\TextColumn::make('obra.nombre')
+                        ->searchable(),
 
                     ])
                 ])->space(3)
@@ -81,11 +84,21 @@ class FotoResource extends Resource
     {
         return $infolist
             ->schema([
-                Section::make('Fotos de la Obra')
+                Section::make('Fotos de la Obra infoLIst')
+                    ->columns(1
+
+                    )
                 ->schema([
                     TextEntry::make('nombre'),
-                    ImageEntry::make('images')->width('50%')
+                    ImageEntry::make('images')
+                        ->width('100%')
+                        ->height('100%')
+                        ->columnSpanFull()
+                      ,
+
                 ])
+
+
             ]);
     }
 
