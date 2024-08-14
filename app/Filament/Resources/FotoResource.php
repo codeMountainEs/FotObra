@@ -51,6 +51,7 @@ class FotoResource extends Resource
                         ->weight(FontWeight::Bold),
                         Tables\Columns\TextColumn::make('referencia')
                         ->searchable(),
+                        Tables\Columns\SpatieTagsColumn::make('tags'),
                         Tables\Columns\TextColumn::make('obra.nombre')
                         ->searchable(),
 
@@ -58,7 +59,9 @@ class FotoResource extends Resource
                 ])->space(3)
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('tipobra')
+                    ->label('Tipo de Obra')
+                    ->relationship('tipobra', 'nombre'),
             ])
             ->contentGrid([
                 'md' => 2,

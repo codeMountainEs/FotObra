@@ -7,19 +7,20 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\SpatieTagsInput;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+
 
 class Foto extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
     use Multitenantable;
-
 
 
 
@@ -63,6 +64,12 @@ class Foto extends Model implements HasMedia
     public function tipobra(): BelongsTo
     {
         return $this->belongsTo(Tipobra::class);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+
     }
     public function user(): BelongsTo
     {
@@ -119,6 +126,10 @@ class Foto extends Model implements HasMedia
                     ->panelLayout('grid')
                     ->columnSpanFull()
                 ,
+
+                SpatieTagsInput::make('tags')
+                ->columnSpanFull(),
+
 
             ])->columns(1),
 

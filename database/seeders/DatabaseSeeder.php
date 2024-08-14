@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Foto;
 use App\Models\Obra;
 use App\Models\Role;
+use App\Models\Tag;
 use App\Models\Tipobra;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -52,8 +54,12 @@ class DatabaseSeeder extends Seeder
         ]);
         Obra::factory()->create([
             'nombre' => 'RESTAURANTE ',
-            'referencia' => 'RES-SA-001',
+            'referencia' => 'RESel-SA-001',
 
         ]);
+
+
+
+
     }
 }

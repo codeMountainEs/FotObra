@@ -9,13 +9,16 @@ trait Multitenantable
         static::creating(function ($model) {
             $model->user_id = auth()->id();
         });
-//        dd(auth()->user()->role_id);
+       //dd(auth()->user());
+        if(auth()->user()){
 
-        if (auth()->user()->role_id ===3 ) {
-            static::addGlobalScope('created_by_user_id', function (\Illuminate\Database\Eloquent\Builder $builder) {
-                $builder->where('user_id', auth()->id());
 
-            });
+            if (auth()->user()->role_id ===3 ) {
+                static::addGlobalScope('created_by_user_id', function (\Illuminate\Database\Eloquent\Builder $builder) {
+                    $builder->where('user_id', auth()->id());
+
+                });
+            }
         }
     }
 

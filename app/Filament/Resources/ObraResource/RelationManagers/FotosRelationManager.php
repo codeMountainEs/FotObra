@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ObraResource\RelationManagers;
 
 use App\Models\Foto;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
@@ -46,15 +47,17 @@ class FotosRelationManager extends RelationManager
                     ->limit(3)
                     ->label('Imagen'),
 
+                Tables\Columns\SpatieTagsColumn::make('tags'),
 
-             /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
-                    ->collection('obraCollection')
-                    ->circular()
-                    ->stacked()
-                    ->limit(3)
-                    ->limitedRemainingText() ,
 
-                */
+                /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
+                       ->collection('obraCollection')
+                       ->circular()
+                       ->stacked()
+                       ->limit(3)
+                       ->limitedRemainingText() ,
+
+                   */
 
 
                     Tables\Columns\TextColumn::make('updated_at')
