@@ -66,11 +66,7 @@ class Foto extends Model implements HasMedia
         return $this->belongsTo(Tipobra::class);
     }
 
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany(Tag::class);
 
-    }
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -126,9 +122,6 @@ class Foto extends Model implements HasMedia
                     ->panelLayout('grid')
                     ->columnSpanFull()
                 ,
-
-                SpatieTagsInput::make('tags')
-                ->columnSpanFull(),
 
 
             ])->columns(1),

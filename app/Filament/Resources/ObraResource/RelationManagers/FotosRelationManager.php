@@ -47,7 +47,6 @@ class FotosRelationManager extends RelationManager
                     ->limit(3)
                     ->label('Imagen'),
 
-                Tables\Columns\SpatieTagsColumn::make('tags'),
 
 
                 /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')
