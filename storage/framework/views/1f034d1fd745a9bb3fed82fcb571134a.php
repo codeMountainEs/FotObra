@@ -1,6 +1,7 @@
 <?php
     use Filament\Support\Enums\Alignment;
     use Filament\Support\Enums\MaxWidth;
+    use Filament\Support\Facades\FilamentView;
 ?>
 
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag;
@@ -131,6 +132,10 @@ unset($__defined_vars); ?>
         open: function () {
             this.$nextTick(() => {
                 this.isOpen = true
+
+                <?php if(FilamentView::hasSpaMode()): ?>
+                    this.$dispatch('ax-modal-opened')
+                <?php endif; ?>
 
                 this.$refs.modalContainer.dispatchEvent(
                     new CustomEvent('modal-opened', { id: '<?php echo e($id); ?>' }),
