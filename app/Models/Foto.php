@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Tags\HasTags;
 
 
 class Foto extends Model implements HasMedia
@@ -21,6 +22,7 @@ class Foto extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
     use Multitenantable;
+    use HasTags;
 
 
 
@@ -125,6 +127,7 @@ class Foto extends Model implements HasMedia
 
 
             ])->columns(1),
+            SpatieTagsInput::make('tags'),
 
 
          /*  SpatieMediaLibraryFileUpload::make('fotos')

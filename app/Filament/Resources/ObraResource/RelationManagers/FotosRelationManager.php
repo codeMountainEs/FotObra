@@ -46,7 +46,7 @@ class FotosRelationManager extends RelationManager
                     ->stacked()
                     ->limit(3)
                     ->label('Imagen'),
-
+                Tables\Columns\SpatieTagsColumn::make('tags'),
 
 
                 /*   Tables\Columns\SpatieMediaLibraryImageColumn::make('Fotos')

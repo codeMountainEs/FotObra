@@ -135,7 +135,7 @@
             <div
                 x-ignore
                 <?php if(FilamentView::hasSpaMode()): ?>
-                    ax-load="visible"
+                    ax-load="visible || event (ax-modal-opened)"
                 <?php else: ?>
                     ax-load
                 <?php endif; ?>

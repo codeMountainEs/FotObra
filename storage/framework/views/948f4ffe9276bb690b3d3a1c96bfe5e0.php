@@ -34,6 +34,7 @@ unset($__defined_vars); ?>
 
 <?php
     $iconClasses = 'fi-breadcrumbs-item-separator flex h-5 w-5 text-gray-400 dark:text-gray-500';
+    $itemLabelClasses = 'fi-breadcrumbs-item-label text-sm font-medium text-gray-500 dark:text-gray-400';
 ?>
 
 <nav <?php echo e($attributes->class(['fi-breadcrumbs'])); ?>>
@@ -96,14 +97,21 @@ unset($__defined_vars); ?>
 <?php endif; ?>
                 <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
-                <a
-                    <?php echo e(\Filament\Support\generate_href_html(is_int($url) ? '#' : $url)); ?>
+                <!--[if BLOCK]><![endif]--><?php if(is_int($url)): ?>
+                    <span class="<?php echo e($itemLabelClasses); ?>">
+                        <?php echo e($label); ?>
 
-                    class="fi-breadcrumbs-item-label text-sm font-medium text-gray-500 transition duration-75 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                >
-                    <?php echo e($label); ?>
+                    </span>
+                <?php else: ?>
+                    <a
+                        <?php echo e(\Filament\Support\generate_href_html($url)); ?>
 
-                </a>
+                        class="<?php echo e($itemLabelClasses); ?> transition duration-75 hover:text-gray-700 dark:hover:text-gray-200"
+                    >
+                        <?php echo e($label); ?>
+
+                    </a>
+                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
             </li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
     </ol>
