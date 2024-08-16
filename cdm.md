@@ -95,3 +95,26 @@ Filament page [app/Filament/Resources/FotoResource/Pages/ViewFotos.php] created 
 
 INFO  Make sure to register the page in `FotoResource::getPages()`.  
 
+
+
+## RAMAS GIT
+
+* empuja tus cambios a git
+git pull origin tu_rama
+
+* Crea pull-request en gitHub
+
+* Merge pul Request 
+    o 
+   git checkout main  - cambia rama princiapl
+   git merge mi_rama  - une la rama 
+
+    git push origin main 
+* Elimina ramas 
+
+    git checkout main 
+    git pull origin main 
+    git branch -d tu rama 
+    git push origin --delete tu_rama
+
+* OooooO
