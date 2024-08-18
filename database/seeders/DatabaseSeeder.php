@@ -58,8 +58,13 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        $tiposObra = ['General','Presupuesto','Preparacion','Estructura','Instalaciones','Acabados','Entregas-P.Marcha'];
+        $oficios = ['Albañileria','Fontaneria','Electricidad','Pintura','Carpinteria','Solados','Yeso','Decoracion'];
+        $estadosObra = ['Planificacion','Preparacion','Ejecucion','Pausa','Reanudada','Finalizada','Cancelada'];
 
-
+        foreach ($tiposObra as $tipo) {
+            Tipobra::create(['nombre' => $tipo]);
+        }
 
     }
 }

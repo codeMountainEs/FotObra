@@ -14,8 +14,8 @@ class Tipobra extends Model
 
     ];
 
-    public function obras(): HasMany
+    public function fotos(): HasMany
     {
-        return $this->hasMany(Obra::class);
+        return $this->hasMany(Foto::class);
     }
 }
