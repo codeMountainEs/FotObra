@@ -112,7 +112,7 @@ class Foto extends Model implements HasMedia
             Section::make('Imágenes del Trabajo')->schema([
 
                 FileUpload::make('images')
-                    ->directory('trabajos')
+                    ->directory('xxx')
                     ->multiple()
                     ->maxFiles(5)
                     ->reorderable()
@@ -125,12 +125,12 @@ class Foto extends Model implements HasMedia
                     ->columnSpanFull()
                 ,
 
-
             ])->columns(1),
+
             SpatieTagsInput::make('tags'),
 
 
-         /*  SpatieMediaLibraryFileUpload::make('fotos')
+              /*  SpatieMediaLibraryFileUpload::make('fotos')
 
                ->collection('obraCollection')
                 ->image()

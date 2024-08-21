@@ -30,12 +30,15 @@ class ListFotos extends ListRecords
 
 
         foreach ($tiposObra as $tipobra) {
-            $tabs[str($tipobra->nombre)->slug()->toString()] = Tab::make($tipobra->nombre)
-            ->badge($tipobra->fotos_count)
-            ->modifyQueryUsing(function ($query) use ($tipobra){
-               // dd($tiposObra->pluck('id'));
-                return $query->where('tipobra_id', $tipobra->id);
-            });
+            if($tipobra->fotos_count > 0){
+                $tabs[str($tipobra->nombre)->slug()->toString()] = Tab::make($tipobra->nombre)
+                    ->badge($tipobra->fotos_count)
+                    ->modifyQueryUsing(function ($query) use ($tipobra){
+                        // dd($tiposObra->pluck('id'));
+                        return $query->where('tipobra_id', $tipobra->id);
+                    });
+            }
+
 
         }
         return $tabs;

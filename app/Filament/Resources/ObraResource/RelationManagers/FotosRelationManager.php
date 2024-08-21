@@ -4,6 +4,10 @@ namespace App\Filament\Resources\ObraResource\RelationManagers;
 
 use App\Models\Foto;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -11,9 +15,17 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
+use Symfony\Component\Console\Input\Input;
+
 class FotosRelationManager extends RelationManager
 {
     protected static string $relationship = 'fotos';
+
+
+
+
 
     public function isReadOnly(): bool
     {
@@ -24,10 +36,65 @@ class FotosRelationManager extends RelationManager
     public function form(Form $form): Form
     {
         return $form
-            ->schema(
-                Foto::getForm(),
+            ->schema([
+              //  Foto::getForm(),
+                Hidden::make('user_id')
+                    ->default(auth()->id())
+                    ->required(),
+
+
+                Select::make('tipobra_id')
+                    ->label('Tipo de Obra')
+                    ->relationship('tipobra', 'nombre')
+                    ->default(1)
+                    ->required()
+                ,
+
+                Section::make('Imágenes del Trabajo')->schema([
+
+                    FileUpload::make('images')
+                        ->directory(function (?Model $record,Forms\Get $get, Forms\Set $set) {
+
+                            $obra = $this->getOwnerRecord();
+
+                            $obra_codigo = $obra ? $obra->id : '00000';
+
+
+                           // dd($obra, $obra->id, $referenciaFormulario, $referencia, $set);
+
+                            // Retorna el directorio basado en la referencia, si está disponible.
+                            return 'OBRAS-FOTO/' . ($obra_codigo ?? 'D000');
+
+                           // dd( $record,$get('referencia'), $set, $record->referencia, $get);
+                        }
+                            //'trabajos/'.auth()->id()
+                        )
+                        ->multiple()
+                        ->maxFiles(5)
+                        ->reorderable()
+                        ->imageEditor()
+                        ->imageResizeMode('cover')
+                        ->imageCropAspectRatio('16:9')
+                        ->imageResizeTargetWidth('1280')
+                        ->imageResizeTargetHeight('720')
+                        ->panelLayout('grid')
+                        ->columnSpanFull()
+                    ,
+
+                ])->columns(1),
+                SpatieTagsInput::make('tags'),
+
+
+            ],
+
+
+
+
             );
     }
+
+
+
 
     public function table(Table $table): Table
     {
@@ -36,11 +103,13 @@ class FotosRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                 ->searchable(),
+
                 Tables\Columns\TextColumn::make('tipobra.nombre')
                     ->badge()
                     ->searchable()
                     ->color('success')
                     ->label('Tipo de Obra'),
+
                 Tables\Columns\ImageColumn::make('images')
                     ->circular()
                     ->stacked()
