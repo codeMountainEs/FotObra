@@ -31,7 +31,6 @@ class ObraResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
 
-
     public static function getNavigationBadge(): ?string
     {
         return Obra::where('is_active', true)->count();
@@ -77,7 +76,6 @@ class ObraResource extends Resource
                 ]),
             ]);
     }
-
 
 
     public static function getRelations(): array

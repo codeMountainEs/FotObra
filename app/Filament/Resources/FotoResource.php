@@ -25,7 +25,6 @@ class FotoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-
     public static function getNavigationBadge(): ?string
     {
         return Foto::countTotalImages();
@@ -88,7 +87,6 @@ class FotoResource extends Resource
                 ]),
             ]);
     }
-
 
     public static function infolist(Infolist $infolist): Infolist
     {
