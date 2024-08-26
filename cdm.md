@@ -96,25 +96,34 @@ Filament page [app/Filament/Resources/FotoResource/Pages/ViewFotos.php] created 
 INFO  Make sure to register the page in `FotoResource::getPages()`.  
 
 
+## Ejemplo de Flujo de Trabajo
+* Crear una rama nueva:
+git checkout -b nueva-funcionalidad
 
-## RAMAS GIT
+* Hacer cambios y confirmarlos:
+git add .
+git commit -m "Añadir nueva funcionalidad"
 
-* empuja tus cambios a git
-git pull origin tu_rama
+* Subir la nueva rama al remoto:
+git push origin nueva-funcionalidad
 
-* Crea pull-request en gitHub
+* Fusionar la rama en main después de probarla:
+git checkout main
+git merge nueva-funcionalidad
 
-* Merge pul Request 
-    o 
-   git checkout main  - cambia rama princiapl
-   git merge mi_rama  - une la rama 
+* Eliminar la rama local y remota si ya no es necesaria:
+git branch -d nueva-funcionalidad
+git push origin --delete nueva-funcionalidad
 
-    git push origin main 
-* Elimina ramas 
+# Comparar rama 
 
-    git checkout main 
-    git pull origin main 
-    git branch -d tu rama 
-    git push origin --delete tu_rama
+* Comparar las diferencias de contenido:
+git diff main..feature
 
-* OooooO
+* Ver los commits en feature que no están en main:
+git log main..feature
+
+* Ver solo los nombres de los archivos cambiados:
+git diff --name-only main..feature
+
+
