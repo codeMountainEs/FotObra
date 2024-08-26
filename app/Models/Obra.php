@@ -30,7 +30,6 @@ class Obra extends Model implements HasMedia
 
 
 
-
     public function is_active()
     {
         return $this->is_active = true;

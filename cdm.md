@@ -86,14 +86,19 @@ php artisan make:filament-widget
 
 
 
-php artisan make:filament-resource Foto --view
-php artisan make:filament-page ViewFotos   
-resource FotoResource 
-view
 
-Filament page [app/Filament/Resources/FotoResource/Pages/ViewFotos.php] created successfully.
+# INFOLIST OBRA 
+php artisan make:filament-page ViewObra --resource=ObraResource --type=ViewRecord
 
-INFO  Make sure to register the page in `FotoResource::getPages()`.  
+
+
+
+
+
+
+
+
+
 
 
 ## Ejemplo de Flujo de Trabajo

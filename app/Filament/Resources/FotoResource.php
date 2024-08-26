@@ -21,8 +21,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class FotoResource extends Resource
 {
     protected static ?string $model = Foto::class;
+    protected static ?int $navigationSort = 20;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+
+    public static function getNavigationBadge(): ?string
+    {
+        return Foto::countTotalImages();
+    }
 
     public static function form(Form $form): Form
     {

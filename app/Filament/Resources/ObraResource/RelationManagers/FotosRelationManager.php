@@ -14,6 +14,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use NunoMaduro\Collision\Adapters\Phpunit\State;
@@ -60,7 +61,7 @@ class FotosRelationManager extends RelationManager
                             $obra_codigo = $obra ? $obra->id : '00000';
 
 
-                           // dd($obra, $obra->id, $referenciaFormulario, $referencia, $set);
+                          //  dd($record, $obra_codigo, $obra, $set);
 
                             // Retorna el directorio basado en la referencia, si está disponible.
                             return 'OBRAS-FOTO/' . ($obra_codigo ?? 'D000');
