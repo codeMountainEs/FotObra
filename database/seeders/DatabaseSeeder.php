@@ -30,21 +30,22 @@ class DatabaseSeeder extends Seeder
         Tipobra::create(['nombre' => 'Finalización']);
 
 
-
         User::factory()->create([
             'name' => 'Administrador',
             'email' => 'admin@fotobra.com',
-            'role_id' => '1'
+            'role_id' => Role::where('name', 'Administrador')->first()->id,
+
         ]);
         User::factory()->create([
             'name' => 'Oficina',
             'email' => 'oficina@fotobra.com',
-            'role_id' => '2'
+            'role_id' => Role::where('name', 'Oficina')->first()->id,
         ]);
         User::factory()->create([
             'name' => 'Jefe de Obra',
             'email' => 'jefedeobra@fotobra.com',
             'role_id' => '3'
+            //        'role_id' => Role::where('name', 'Jefe de Obra')->first()->id,
         ]);
 
         Obra::factory()->create([

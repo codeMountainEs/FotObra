@@ -132,3 +132,33 @@ git log main..feature
 git diff --name-only main..feature
 
 
+## ROLE 
+
+role 
+user role_id 
+
+
+php artisan make:filament-resource User --generate
+
+app/Filament/Resources/UserResource.php]
+
+
+
+user -> role_id
+
+    obra_user
+
+obra 
+
+usuarios solo pueden ver las obras asignadas
+Asignar obra a usuario .
+crear tabla obra_user ..
+añadir repeater en obra .. solo para admin 
+
+Usuarios obra , solo ven las que tienen asignadas...
+
+php artisan make:policy UserPolicy --model=User
+[app/Policies/UserPolicy.php
+
+
+

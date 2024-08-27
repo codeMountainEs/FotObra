@@ -24,11 +24,6 @@ class User extends Authenticatable
         'role_id',
     ];
 
-    public function rol() : BelongsTo
-    {
-        return $this->belongsTo(Role::class);
-    }
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,4 +46,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function role() : BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        if (!$this->relationLoaded('role')) {
+            $this->load('role');
+        }
+
+        return $this->role->name === 'Administrador';
+    }
+
+
 }
