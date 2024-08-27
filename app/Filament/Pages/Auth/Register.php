@@ -30,8 +30,8 @@ class Register extends BaseRegister
     {
         return Select::make('role_id')
             ->options([
-                '1' => 'Administrator',
-                '2' => 'Oficina',
+              //  '1' => 'Administrator',
+              //  '2' => 'Oficina',
                 '3' => 'Jefe de Obra',
             ])
             ->default('1')
