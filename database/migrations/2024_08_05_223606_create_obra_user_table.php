@@ -15,6 +15,9 @@ return new class extends Migration
             $table->foreignId('obra_id')->constrained();
             $table->foreignId('user_id')->constrained();
 
+            //  $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            //  $table->foreignId('obra_id')->constrained()->onDelete('cascade');
+
         });
     }
 

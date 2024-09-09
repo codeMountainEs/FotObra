@@ -92,9 +92,11 @@ php artisan make:filament-page ViewObra --resource=ObraResource --type=ViewRecor
 
 
 
+# Obras Usuarios 
+* 
+php artisan make:migration creatre_obra_user_table
 
-
-
+php artisan make:filament-relation-manager UserResource obras nombre
 
 
 
@@ -161,4 +163,49 @@ php artisan make:policy UserPolicy --model=User
 [app/Policies/UserPolicy.php
 
 
+
+## GITHUB 
+
+git checkout -b nombre-de-tu-rama
+
+git add .
+
+git commit -m "Descripción de los cambios realizados"
+
+git push origin nombre-de-tu-rama
+
+## Unifica la Rama (Merge) a la Rama Principal a mano 
+
+Opción 2: Hacer el Merge desde la Terminal
+
+Cambia a la rama principal en tu entorno local (por ejemplo, main): 
+
+git checkout main
+Asegúrate de que tu rama principal esta actualizada:
+
+
+git pull origin main
+
+Haz el merge de la nueva rama con la principal:
+
+git merge nombre-de-tu-rama
+Resuelve cualquier conflicto si es necesario. Luego, confirma los cambios después de resolverlos:
+
+git add .
+git commit -m "Resolviendo conflictos y unificando rama"
+
+Sube la rama principal unificada a GitHub:
+
+git push origin main
+
+5. Elimina la Rama (Opcional)
+   Una vez que la rama ha sido unificada, puedes eliminarla tanto localmente como en GitHub para mantener limpio el repositorio.
+
+Eliminar localmente:
+
+
+git branch -d nombre-de-tu-rama
+Eliminar en GitHub:
+
+git push origin --delete nombre-de-tu-rama
 

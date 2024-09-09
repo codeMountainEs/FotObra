@@ -43,16 +43,13 @@ class FotosRelationManager extends RelationManager
                     ->default(auth()->id())
                     ->required(),
 
-
                 Select::make('tipobra_id')
                     ->label('Tipo de Obra')
                     ->relationship('tipobra', 'nombre')
                     ->default(1)
                     ->required()
                 ,
-
                 Section::make('Imágenes del Trabajo')->schema([
-
                     FileUpload::make('images')
                         ->directory(function (?Model $record,Forms\Get $get, Forms\Set $set) {
 

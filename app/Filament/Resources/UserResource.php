@@ -46,6 +46,11 @@ class UserResource extends Resource
                     ->dehydrated(fn(?string $state): bool => filled($state))
                     ->required(fn(string $operation): bool => $operation === 'create')
                 ,
+               /* Forms\Components\Select::make('obras')
+                ->relationship('obras', 'nombre')
+                ->multiple(),*/
+
+
 
             ]);
     }
@@ -64,6 +69,8 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable(),
                */
+                Tables\Columns\TextColumn::make('obras.name')
+                    ->label('Obras Asignadas'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -92,7 +99,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ObrasRelationManager::class,
         ];
     }
 
