@@ -92,9 +92,11 @@ php artisan make:filament-page ViewObra --resource=ObraResource --type=ViewRecor
 
 
 
+# Obras Usuarios 
+* 
+php artisan make:migration creatre_obra_user_table
 
-
-
+php artisan make:filament-relation-manager UserResource obras nombre
 
 
 
